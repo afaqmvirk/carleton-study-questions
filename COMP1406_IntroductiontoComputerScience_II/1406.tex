@@ -1,26 +1,536 @@
 \documentclass[11pt,letterpaper]{exam}
 \usepackage{../study_session}
+\usepackage{graphicx}
 
 \pagestyle{headandfoot}
 \runningheadrule
 \firstpageheadrule
 
-\firstpageheader{COMP 1406}{Study Session Practice Questions}{\today}
-\runningheader{COMP 1406}{Study Session Practice Questions}{Page \thepage\ of \numpages}
+\firstpageheader{COMP 1406Z}{Study Session Practice Questions}{\today}
+\runningheader{COMP 1406Z}{Study Session Practice Questions}{Page \thepage\ of \numpages}
 \runningfooter{}{}{}
 
-\title{COMP 1406 Introduction to Computer Science II}
+\title{COMP 1406Z Introduction to Computer Science II}
 \author{Study Session Questions}
 
 \begin{document}
-
 \maketitle
-
 \vspace{1em}
 
 \begin{questions}
 
-\question Write your first question here.
+\section*{Part 1: Principles of OOP}
+
+\question Which of the following are OOP principles? Select all that apply.
+\begin{checkboxes}
+\choice compilation
+\choice encapsulation
+\choice polymorphism
+\choice abstraction
+\choice inheritance
+\choice debugging
+\end{checkboxes}
+
+\mcquestion{What is abstraction in Java?}{
+\choice hiding the implementation details and showing only the functionality
+\choice hiding the object state
+\choice writing multiple methods with the same name
+\choice using interfaces and classes
+}
+
+\mcquestion{What must a class do if it implements an interface?}{
+\choice be marked as abstract
+\choice implement all abstract methods of the interface
+\choice explicitly extend the interface
+\choice contain only static methods
+}
+
+\mcquestion{What is the main purpose of encapsulation in Java?}{
+\choice To restrict direct access to object data and ensure controlled access.
+\choice To provide methods to manipulate data directly.
+\choice To use runtime polymorphism.
+\choice To inherit properties from a parent class.
+}
+
+\shortanswer[1.0in]{Place the four access modifiers in order, starting with the highest level of encapsulation.}
+
+\mcquestion{What is the concept of inheritance in Java?}{
+\choice A method of implementing interfaces for improved organization.
+\choice A process for defining private methods and variables.
+\choice A feature that ensures code executes in a specific order.
+\choice A mechanism for one class to acquire the properties and methods of another.
+}
+
+\shortanswer[0.75in]{Which keyword is used to inherit a class in Java?}
+
+\shortanswer[0.75in]{What operator can be used to check the type of an object?}
+
+\mcquestion{What is the difference between an abstract class and an interface in Java?}{
+\choice an interface shouldn't have attributes or constants, an abstract class can
+\choice an abstract class supports multiple inheritance, an interface does not
+\choice abstract classes can have methods with implementation, interfaces shouldn't
+\choice interfaces do not support abstraction, whereas an abstract class does
+}
+
+\tfquestion{An abstract subclass can provide implementation of inherited abstract methods.}
+
+\question If A is a subclass of B, which of the following are true? Select all that apply.
+\begin{checkboxes}
+\choice class B can access private members of class A
+\choice objects of type A can be stored in variables of type B
+\choice objects of type B can be stored in variables of type A
+\choice class A inherits all non-private members of class B
+\end{checkboxes}
+
+\mcquestion{Assume we are designing a BankAccount class. Which of the following methods are very likely to be static?}{
+\choice deposit()
+\choice getBalance()
+\choice convertToUSD()
+\choice getExchangeRate()
+}
+
+\question Which of the following are true of the final modifier? Select all that apply.
+\begin{checkboxes}
+\choice a variable declared final can't be reassigned after initialization
+\choice a class declared as final cannot be subclassed
+\choice a final method cannot be overridden by subclasses
+\choice declaring a method as final will also make the class final
+\choice a final class must have a final constructor
+\choice a class marked as final must be abstract
+\end{checkboxes}
+
+\shortanswer[1.0in]{Match each of the following memory areas to their purpose.}
+
+\shortanswer[0.75in]{Which keyword in Java is used to refer to the current instance of a class within its own methods or constructors?}
+
+\question Which of the following are true of abstract classes? Select all that apply.
+\begin{checkboxes}
+\choice abstract classes are meant to be a framework for child classes
+\choice abstract classes cannot be instantiated
+\choice abstract classes cannot be marked final
+\choice abstract classes cannot have a constructor
+\end{checkboxes}
+
+\section*{Week 3: Polymorphism and ADTs}
+
+\mcquestion{What is polymorphism in Java?}{
+\choice the property of an object to inherit more than one superclass at once
+\choice the ability of a method to modify its arguments directly
+\choice the act of defining multiple variables of the same type
+\choice the property of an object to take on multiple different forms
+}
+
+\question Which of the following are advantages of using polymorphism? Select all that apply.
+\begin{checkboxes}
+\choice simplifies code maintenance by promoting modularity
+\choice enables a single interface to represent multiple behaviors
+\choice improves code scalability and flexibility
+\choice guarantees faster execution speed
+\choice increased memory efficiency
+\choice code is easier to understand
+\end{checkboxes}
+
+\question Is this an example of method overloading, or method overriding?
+\begin{verbatim}
+class Food {
+    void prepare() {
+        System.out.println("Preparing food");
+    }
+}
+
+class Pasta extends Food {
+    void prepare() {
+        System.out.println("Mamma mia, pasta");
+    }
+}
+
+public static void main(String[] args) {
+    Food myFood = new Pasta();
+    myFood.prepare();
+}
+\end{verbatim}
+\begin{choices}
+\choice method overloading
+\choice method overriding
+\choice both
+\choice neither
+\end{choices}
+
+\question Is this an example of method overloading, or method overriding?
+\begin{verbatim}
+class Food {
+    void prepare() {
+        System.out.println("Preparing food...");
+    }
+
+    void prepare(String name) {
+        System.out.println("Preparing " + name + "...");
+    }
+}
+
+class Pizza extends Food {
+    void prepare() {
+        System.out.println("Preparing pizza...");
+    }
+
+    void prepare(String name, int size) {
+        System.out.println("Preparing " + size + "-in " + name);
+    }
+}
+\end{verbatim}
+\begin{choices}
+\choice method overloading
+\choice method overriding
+\choice both
+\choice neither
+\end{choices}
+
+\mcquestion{What is an abstract data type (ADT)?}{
+\choice a data type defined by its implementation details
+\choice a data type defined by its behavior and operations, not its implementation
+\choice a specific type of data structure optimized for memory efficiency
+\choice a specific format for exporting and importing data between systems
+}
+
+\mcquestion{What is the key characteristic of a Queue ADT?}{
+\choice Last In, First Out (LIFO)
+\choice First In, First Out (FIFO)
+\choice Random Access
+\choice First Out, In Last (FOIL)
+}
+
+\mcquestion{What distinguishes a LinkedList from an array?}{
+\choice a linked list uses dynamic memory allocation
+\choice a linked list stores elements in a contiguous memory block
+\choice a linked list allows direct access to any element
+\choice a linked list has a fixed size
+}
+
+\mcquestion{What is the primary advantage of using a LinkedList over an array?}{
+\choice faster random access to elements
+\choice efficient insertion and deletion operations
+\choice ability to store only unique elements
+\choice it uses less memory than arrays
+}
+
+\shortanswer[0.75in]{What is the time complexity of searching for an element in a singly linked list?}
+
+\section*{Week 5: GUIs, JavaFX, and MVC}
+
+\mcquestion{Which of the following is NOT a feature of JavaFX?}{
+\choice Styling using CSS
+\choice 2D and 3D graphics support
+\choice Integration with modern Java IDEs
+\choice Built-in database management system
+}
+
+\mcquestion{What is the primary purpose of the Stage class in JavaFX?}{
+\choice to define the layout of UI elements
+\choice to act as the main container for the JavaFX application window
+\choice to represent the controller of the application
+\choice to define the application's event listeners
+}
+
+\mcquestion{What is the purpose of an event handler in JavaFX?}{
+\choice To create new UI components
+\choice To manage user interactions like clicks and key presses
+\choice To manage data binding between the model and the view
+\choice To apply styling to JavaFX nodes
+}
+
+\shortanswer[0.75in]{Which JavaFX class is typically used as the main entry point for an application?}
+
+\mcquestion{In a JavaFX application using MVC, what would typically trigger a change in the Model?}{
+\choice direct interaction with the Model by the View
+\choice a user action in the View, processed by the Controller
+\choice automatic updates from the View to the Model
+\choice the initialization of the Stage
+}
+
+\mcquestion{What type of event does the setOnAction() method handle?}{
+\choice Mouse events only
+\choice Keyboard events only
+\choice Action events like button clicks
+\choice Focus change events
+}
+
+\section*{Wrap-Up: Code Tracing}
+
+\question {[Lecture 01, 02, 04] What will be the output of this code?}
+\begin{verbatim}
+class Book {
+    String title;
+    double price;
+
+    Book(String title, double price) {
+        this.title = title;
+        this.price = price;
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Book book1 = new Book("how to be a sigma", 29.99);
+        Book book2 = new Book("how to be a sigma", 29.99);
+        System.out.print(book1 == book2);
+        System.out.print(book1.title.equals(book2.title));
+    }
+}
+\end{verbatim}
+\begin{choices}
+\choice falsefalse
+\choice falsetrue
+\choice truefalse
+\choice truetrue
+\end{choices}
+
+\question {[Lecture 04, 07] What will be the output of this code?}
+\begin{verbatim}
+class Course {
+    void enroll(Course course) {
+        System.out.println("Student enrols in course.");
+    }
+    void enroll(CompSci course) {
+        System.out.println("Student enrols in CS course.");
+    }
+}
+class CompSci extends Course {
+    void enroll(Course course) {
+        System.out.println("CS student enrols in course.");
+    }
+    void enroll(CompSci course) {
+        System.out.println("CS student enrols in CS course.");
+    }
+}
+public class Test {
+    public static void main(String[] args) {
+        Course c1 = new CompSci();
+        Course c2 = new Course();
+        c1.enroll(c2);
+        c2.enroll(c1);
+    }
+}
+\end{verbatim}
+\begin{choices}
+\choice CS student enrols in course.\newline Student enrols in course.
+\choice Student enrols in course.\newline CS student enrols in course.
+\choice Student enrols in CS course.\newline Student enrols in CS course.
+\choice CS student enrols in course.\newline Student enrols in CS course.
+\end{choices}
+
+\question {[Lecture 06, 07] What will be the output of this code?}
+\begin{verbatim}
+interface Club {
+    void join();
+}
+
+class SportsClub implements Club {
+    public void join() {
+        System.out.println("Joining a sports club.");
+    }
+}
+
+class MusicClub implements Club {
+    public void join() {
+        System.out.println("Joining a music club.");
+    }
+}
+
+public class Test {
+    public static void main(String[] args) {
+        Club club = new SportsClub();
+        MusicClub musicClub = (MusicClub) club;
+        musicClub.join();
+    }
+}
+\end{verbatim}
+\begin{choices}
+\choice Joining a sports club.\newline Joining a music club.
+\choice Joining a music club.
+\choice Joining a sports club.
+\choice Exception in thread "main"
+\end{choices}
+
+\question {[Lecture 08] What is the output of the following code?}
+\begin{verbatim}
+import java.util.ArrayList;
+
+public static void main(String[] args) {
+    ArrayList<Integer> list = new ArrayList<>();
+    list.add(1);
+    list.add(2);
+    list.remove(1);
+    list.add(4);
+    list.add(1, 2);
+    System.out.println(list);
+}
+\end{verbatim}
+\begin{choices}
+\choice [1, 2, 4]
+\choice [2, 2, 4]
+\choice [1, 4, 1]
+\choice [2, 4, 1]
+\end{choices}
+
+\question {[Lecture 09] What is the output of the following code?}
+\begin{verbatim}
+import java.util.HashMap;
+
+public static void main(String[] args) {
+    HashMap<String, String> map = new HashMap<>();
+    map.put("K", "Khushpreet");
+    map.put("J", "Jack");
+    map.put("K", "Kareem");
+    System.out.println(map.get("K") + " " + map.size());
+}
+\end{verbatim}
+\begin{choices}
+\choice Khushpreet 3
+\choice Kareem 2
+\choice Khushpreet 2
+\choice Compilation Error
+\end{choices}
+
+\question {[Lecture 10] What is the output of the following code?}
+\begin{verbatim}
+public class Main {
+    public static void main(String[] args) {
+        try {
+            String str = "who is passing the exam";
+            str = null;
+            System.out.print(str.length());
+        } catch (ArithmeticException e) {
+            System.out.print("Ishaan, ");
+        } catch (NullPointerException e) {
+            System.out.print("Aaryan, ");
+        } catch (Exception e) {
+            System.out.print("Anushka, ");
+        } finally {
+            System.out.print("Ahmad, ");
+        }
+    }
+}
+\end{verbatim}
+\begin{choices}
+\choice Ishaan, Aaryan, Anushka, Ahmad,
+\choice Aaryan, Ahmad,
+\choice Aaryan, Anushka, Ahmad
+\choice Ahmad,
+\end{choices}
+
+\question {[Lecture 11] What is the output of the following code?}
+\begin{verbatim}
+import java.io.*;
+
+public static void main(String[] args) throws IOException {
+    File IO Exception = new File("classlist.txt");
+    file.createNewFile();
+
+    try (PrintWriter writer = new PrintWriter(new
+        FileWriter(file))) {
+        writer.write("Chi M\n");
+        writer.write("Bliss I");
+    }
+
+    try (BufferedReader reader = new BufferedReader(new
+        FileReader(file))) {
+        System.out.println(reader.readLine());
+        System.out.println(reader.readLine());
+        System.out.print(reader.readLine());
+    }
+}
+\end{verbatim}
+\begin{choices}
+\choice Chi M Bliss I null
+\choice Chi M\newline Bliss I null
+\choice Chi M\newline Bliss I\newline IOException
+\choice IOException
+\end{choices}
+
+\question {[Lecture 04, 07, 09] What will be the output of this program?}
+\begin{verbatim}
+import java.util.*;
+
+class ClassMark {}
+class Quiz extends ClassMark {}
+class Tutorial extends ClassMark {}
+
+public class Main {
+    public static void main(String[] args) {
+        Set<ClassMark> marks = new HashSet<>();
+        marks.add(new Quiz());
+        marks.add(new Tutorial());
+        marks.add(new Quiz());
+
+        System.out.println(marks.size());
+    }
+}
+\end{verbatim}
+\begin{choices}
+\choice 1
+\choice 2
+\choice 3
+\choice Compilation Error
+\end{choices}
+
+\question {[Lecture 04, 07] Which of the following lines cause an exception (i.e. are invalid) if left in? Select any that apply.}
+\begin{verbatim}
+class Building {}
+class Residence extends Building {}
+class Stormont extends Residence {}
+class Herzberg extends Building {}
+class Southam extends Building {}
+
+public static void main(String[] args) {
+    Residence res = new Residence();
+    Building b1 = (Building) res;
+    Stormont storm = new Stormont();
+    Residence res2 = (Residence) storm;
+    Southam southam = (Southam) res2;
+    Herzberg herz = (Herzberg) b1;
+}
+\end{verbatim}
+\begin{checkboxes}
+\choice line 9
+\choice line 10
+\choice line 11
+\choice line 12
+\choice line 13
+\choice line 14
+\end{checkboxes}
+
+\question {[Lecture 12, 13, 14] What should we replace line 19 with to achieve the intended functionality of this JavaFX program?}
+\begin{verbatim}
+public class Main extends Application {
+    public static void main(String[] args) { launch(args); }
+
+    private int counter = 0;
+    public void start(Stage primaryStage) {
+        Label label = new Label("Count: 0");
+        Button button = new Button("Increase Count");
+
+        button.setOnAction(e -> {
+            counter++;
+
+            // i'm on break, fix it yourself
+        });
+
+        VBox layout = new VBox(10);
+        layout.getChildren().addAll(label, button);
+
+        primaryStage.setScene(new Scene(layout, 200, 150));
+        primaryStage.setTitle("Counter App");
+        primaryStage.show();
+    }
+}
+\end{verbatim}
+\begin{choices}
+\choice counter = label.getText()
+\choice label = new Label("Count: " + counter)
+\choice label.text = "Count" + counter
+\choice label.setText("Count: " + counter)
+\end{choices}
+
 
 \end{questions}
 

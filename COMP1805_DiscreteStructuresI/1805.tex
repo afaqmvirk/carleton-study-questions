@@ -1,0 +1,87 @@
+\documentclass[11pt,letterpaper]{exam}
+\usepackage{../study_session}
+\usepackage{graphicx}
+
+\pagestyle{headandfoot}
+\runningheadrule
+\firstpageheadrule
+
+\firstpageheader{COMP 1805}{Study Session Practice Questions}{\today}
+\runningheader{COMP 1805}{Study Se ssion Practice Questions}{Page \thepage\ of \numpages}
+\runningfooter{}{}{}
+
+\title{COMP 1805 Discrete Structures I}
+\author{Study Session Questions}
+
+\begin{document}
+\maketitle
+\vspace{1em}
+
+\begin{questions}
+
+\section*{Confidence Check}
+
+\question I am confident in my ability to understand propositional logic expressions and argue with quantified predicates.
+\question I am confident in my ability to use set identity rules and apply concepts of graph theory.
+\question I am confident in my ability to understand Big-O notation, combinatorics, functions, relations, and summations.
+\question I am confident in my ability to write direct proofs and proofs by induction, contradiction, and counterexample.
+
+\section*{Proofs}
+
+\longanswer{PROVE or DISPROVE: If $x$ and $y$ are rational numbers, then $x \cdot y$ is a rational number.}
+
+\longanswer{Prove or disprove the converse of the statement: For all integers $n > 1$, $n$ can be written as a product of primes.}
+
+\section*{Predicate Calculus}
+
+\question Given $\alpha = \text{True}$, $\beta = \text{False}$, and $\delta = \text{False}$, which statements are true? Select all that apply.
+\begin{checkboxes}
+\choice $((\alpha \lor \beta) \land \neg \delta)$
+\choice $((\alpha \land \beta) \lor (\neg \delta \land \alpha))$
+\choice $((\beta \Rightarrow \alpha) \land (\delta \lor \alpha))$
+\choice $((\alpha \land \delta) \lor (\beta \land \neg \delta))$
+\choice none of these
+\end{checkboxes}
+
+\question Consider the statement: \emph{If it rains, then the ground is wet}. Which of the following conclusions are valid?
+\begin{checkboxes}
+\choice If the ground is wet, it has rained.
+\choice If the ground is not wet, then it has not rained.
+\choice If it does not rain, the ground will never be wet.
+\choice It is not possible that the ground is dry and it is raining.
+\choice none of these
+\end{checkboxes}
+
+\question Match each logical expression to its type.
+\begin{matching}
+\mitem{1}{$\neg((\beta \to \alpha)) \land (\beta \land \alpha)$}{A}{Contradiction}
+\mitem{2}{$(\alpha \to \neg \beta) \lor \neg(\alpha \lor \beta)$}{B}{Tautology}
+\mitem{3}{$\neg((\neg \beta \land \neg \alpha) \land \neg(\alpha \to \beta))$}{C}{Contingency}
+\end{matching}
+
+\section*{Sets \& Graph Theory}
+
+\question Match each set identity to its example.
+\begin{matching}
+\mitem{1}{$A \cup (A \cap B) = A$}{A}{Absorption Identity}
+\mitem{2}{$A \cup A = A$}{B}{Idempotence Law}
+\mitem{3}{$(A \cup B)^c = A^c \cap B^c$}{C}{DeMorgan's Law}
+\mitem{4}{$A - B = A \cap B^c$}{D}{Difference Equivalence}
+\end{matching}
+
+\tfquestion{A tree of $n$ vertices has exactly $n - 1$ edges.}
+
+\section*{Big-O and Functions}
+
+\longanswer{PROVE or DISPROVE: For all integers $a$ and $b$, if $a \mid b$ then $a \le b$.}
+
+\question Consider $f(n) = 7n^2 - 24n + 3$. Which of the following are true? Select all that apply.
+\begin{checkboxes}
+\choice $f(n) \in O(n^2)$
+\choice $f(n) \in \Theta(n^2)$
+\choice $f(n) \in \Omega(n^2)$
+\choice $f(n) \in O(n)$
+\end{checkboxes}
+
+\end{questions}
+\end{document}
