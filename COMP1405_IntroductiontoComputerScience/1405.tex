@@ -1,6 +1,5 @@
 \documentclass[11pt,letterpaper]{exam}
 \usepackage{../study_session}
-
 \pagestyle{headandfoot}
 \runningheadrule
 \firstpageheadrule
@@ -13,15 +12,480 @@
 \author{Study Session Questions}
 
 \begin{document}
-
 \maketitle
-
 \vspace{1em}
 
 \begin{questions}
 
-\question Write your first question here.
+\question If X = FALSE and Y = TRUE, which of these will return TRUE?
+\begin{checkboxes}
+  \choice X and Y
+  \choice not( X and Y)
+  \choice (not X) AND (not Y)
+  \choice X OR Y
+\end{checkboxes}
+
+\question Consider the following logic circuit. What is the output if $X$ = True and $Y$ = False?
+\begin{center}
+\end{center}
+\begin{choices}
+  \choice True
+  \choice False
+\end{choices}
+
+\question Match each loop to its type.
+
+\begin{matching}
+\mitem{1}{\\\texttt{run = True}\\\texttt{while run:}\\\texttt{\ \ \ \ print("hello")}\\\texttt{\ \ \ \ run = False}}{A}{pre-condition with flag variable}
+\mitem{2}{\\\texttt{x = 0}\\\texttt{while True:}\\\texttt{\ \ \ \ x += 1}\\\texttt{\ \ \ \ if x > 2:}\\\texttt{\ \ \ \ \ \ \ \ break}}{B}{post-condition without flag variable}
+\mitem{3}{\\\texttt{run = True}\\\texttt{while True:}\\\texttt{\ \ \ \ if not run:}\\\texttt{\ \ \ \ \ \ \ \ break}\\\texttt{\ \ \ \ run = False}}{C}{post-condition with flag variable}
+\mitem{4}{\\\texttt{x = 0}\\\texttt{while x < 3:}\\\texttt{\ \ \ \ print("hello")}\\\texttt{\ \ \ \ x += 1}}{D}{pre-condition without flag variable}
+\end{matching}
+
+\question Match each control statement with what it does.
+
+\begin{matching}
+\mitem{1}{\texttt{break}}{A}{exits the current loop}
+\mitem{2}{\texttt{continue}}{B}{restarts the current loop}
+\mitem{3}{\texttt{pass}}{C}{doesn't do anything (placeholder)}
+\mitem{4}{\texttt{return}}{D}{exits the current function}
+\end{matching}
+
+\question Which of the following Python data types are mutable?
+\begin{checkboxes}
+  \choice List
+  \choice Tuple
+  \choice Set
+  \choice String
+  \choice Dictionary
+  \choice none of these
+\end{checkboxes}
+
+\question What Python keyword is used to define a function?
+\fillin[\texttt{def}]
+
+\question Which of the following are invalid Python function names?
+\begin{verbatim}
+1 int_value = int(True)
+2 int_value = int([1, 2, 3])
+3 unk_value = "4.2.0"
+4 int_value = int(" 42 ")
+5 str_value = str(45.67)
+6 string_value = 3 + "hello"
+\end{verbatim}
+\begin{choices}
+  \choice 1 and 2
+  \choice 3 and 4
+  \choice 5 and 6
+  \choice 2 and 6
+\end{choices}
+
+\question Which of the following are invalid Python function names?
+\begin{verbatim}
+3 def calculateSum(): return
+4 def 2func(): return
+5 def _private_func(): return
+6 def sum-all(): return
+\end{verbatim}
+\begin{choices}
+  \choice 3 and 4
+  \choice 4 and 6
+  \choice 4 only
+  \choice 6 only
+\end{choices}
+
+\question Match each data type to their properties.
+\begin{matching}
+\mitem{1}{set}{A}{elements are unordered and unique}
+\mitem{2}{dict}{B}{elements are stored in key-value pairs}
+\mitem{3}{list}{C}{elements are ordered}
+\mitem{4}{tuple}{D}{data is immutable}
+\end{matching}
+
+\question Which of the following statements are true? Select all that apply.
+\begin{checkboxes}
+  \choice Declaring a variable in a def without global makes it local.
+  \choice global variables cannot be accessed in nested defs.
+  \choice Global vars can be accessed locally without a keyword if it isn't modified.
+  \choice global variables are automatically immutable and cannot be changed.
+  \choice A local variable declared in a def can't be accessed outside that def.
+  \choice 'global' allows a def to modify a variable declared outside the def.
+\end{checkboxes}
+
+\question Match each string operation to the output \texttt{"mputhCompeci"}.
+\begin{matching}
+\mitem{1}{\texttt{str.split(" ")[1] + str.split(" ")[0][1:4]}}{A}{\texttt{"mputhCompeci"}}
+\mitem{2}{\texttt{str[:5] + str.split()[-1][:3]}}{B}{\texttt{"mputhCompeci"}}
+\mitem{3}{\texttt{"-".join(str.split())[:12]}}{C}{\texttt{"mputhCompeci"}}
+\mitem{4}{\texttt{str.split()[0][2:5] + str.split()[1][:2]}}{D}{\texttt{"mputhCompeci"}}
+\end{matching}
+
+\question Which of the following statements about lists in Python are TRUE? Select all that apply.
+\begin{checkboxes}
+  \choice Lists are immutable.
+  \choice Lists can contain elements of different types.
+  \choice Lists must have unique elements.
+  \choice Lists are unordered collections.
+  \choice Lists do not support slicing.
+  \choice All of these are false.
+\end{checkboxes}
+
+\question Match each list method to its description.
+\begin{matching}
+\mitem{1}{\texttt{append()}}{A}{adds an element at the end of the list}
+\mitem{2}{\texttt{pop()}}{B}{deletes the element at the specified position (or last by default)}
+\mitem{3}{\texttt{remove()}}{C}{deletes the first item with the specified value}
+\mitem{4}{\texttt{insert()}}{D}{adds an element at the specified position}
+\end{matching}
+
+\question What will the following code output?
+\begin{verbatim}
+bob = [1, 2, 3]
+def pat(krb):
+    krb.append(4)
+
+pat(bob)
+print(bob)
+\end{verbatim}
+\begin{choices}
+  \choice [1, 2, 3]
+  \choice [1, 2, 3, 4]
+  \choice Error: 'list' object has no attribute 'append'
+  \choice None
+\end{choices}
+
+\question What is the value of \texttt{num} after \texttt{num = my\_list[2][3]}?
+\begin{verbatim}
+my_list = [
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12]
+]
+\end{verbatim}
+\begin{choices}
+  \choice 9
+  \choice 10
+  \choice 11
+  \choice 12
+\end{choices}
+
+\question Which of the following are true about exceptions in Python?
+\begin{checkboxes}
+  \choice An except block can only handle one type of exception at a time.
+  \choice The except block is executed when an exception is raised in the try block.
+  \choice The try/except block can be nested.
+  \choice The try block can have multiple except blocks.
+  \choice The try block can handle exceptions even if there is no except block.
+  \choice none of these are true
+\end{checkboxes}
+
+\question Match each error to its meaning.
+\begin{matching}
+\mitem{1}{Syntax Error}{A}{a problem checked by the interpreter, incorrect use of the language itself}
+\mitem{2}{Runtime Error}{B}{a problem that isn't checked by the interpreter but crashes the program}
+\mitem{3}{Logic Error}{C}{a problem that doesn't crash the program, but produces unintended results}
+\end{matching}
+
+\question Which of the following are true of binary search? Select all that apply.
+\begin{checkboxes}
+  \choice Binary search compares the target value with each element sequentially.
+  \choice Binary search divides a list into halves and eliminates one half at a time.
+  \choice Binary search can only be applied to sorted lists or arrays.
+  \choice Binary search has a worst-case time complexity of $O(\log n)$.
+  \choice Binary search has a worst-case time complexity of $O(n)$.
+  \choice Binary search can be implemented recursively or iteratively.
+\end{checkboxes}
+
+\question Match each code line to what it does.
+\begin{matching}
+\mitem{1}{\texttt{open(file, 'r')}}{A}{reads through the content of the file, error if the file does not exist}
+\mitem{2}{\texttt{open(file, 'w')}}{B}{overwrites the content of the file, creates the file if it does not exist}
+\mitem{3}{\texttt{open(file, 'a')}}{C}{writes from the end of the file; creates the file if it does not exist}
+\mitem{4}{\texttt{open(file, 'x')}}{D}{creates the specified file, returns an error if the file exists}
+\end{matching}
+
+\question Which of the following are true of linear search? Select all that apply.
+\begin{checkboxes}
+  \choice Linear search has a time complexity of $O(n)$ in the worst case.
+  \choice Linear search compares each element of the list with the target in order.
+  \choice Linear search requires the list to be in descending order.
+  \choice Linear search is faster than binary search on sorted lists.
+  \choice Linear search has a best-case time complexity of $O(\log n)$.
+  \choice Linear search is efficient for small datasets.
+\end{checkboxes}
+
+\question What will the list \texttt{[8,5,4,3,7,6,1,0,9,2]} look like after 4 swaps using each of the following methods? Match accordingly.
+\begin{matching}
+\mitem{1}{Quick Sort (using the last element as a pivot)}{A}{\texttt{[0,1,2,3,4,6,5,8,9,7]}}
+\mitem{2}{Bubble Sort}{B}{\texttt{[5,4,3,7,8,6,1,0,9,2]}}
+\mitem{3}{Selection Sort (selecting the largest element)}{C}{\texttt{[2,5,4,3,0,1,6,7,8,9]}}
+\end{matching}
+
+\question Which adjacency list represents the following graph?
+\begin{center}
+\end{center}
+\begin{choices}
+  \choice [[1, 5], [0, 2, 3, 5], [1, 4], [1, 4], [2, 3], [0, 1, 5]]
+  \choice [[1, 5], [3, 5], [1, 4], [1, 4], [], [0, 5]]
+  \choice [[1, 5], [3, 5], [1, 4], [1, 4], [3], [0]]
+  \choice [[5], [0, 2, 3], [], [1], [2, 3], [0, 1, 5]]
+\end{choices}
+
+\question Which adjacency matrix represents the following graph?
+\begin{center}
+\end{center}
+\begin{choices}
+  \choice $\begin{bmatrix}0&1&0&1&0\\1&0&1&0&1\\0&1&0&1&0\\1&0&1&0&1\\0&1&0&1&0\end{bmatrix}$
+  \choice $\begin{bmatrix}1&0&1&0&1\\0&1&0&1&0\\1&0&1&0&1\\0&1&0&1&0\\1&0&1&0&1\end{bmatrix}$
+  \choice $\begin{bmatrix}0&1&1&1&0\\1&0&0&1&1\\1&0&1&0&1\\1&1&0&0&1\\0&1&1&1&0\end{bmatrix}$
+  \choice $\begin{bmatrix}0&1&0&1&0\\1&0&1&0&1\\1&1&1&1&1\\1&0&1&0&1\\0&1&0&1&0\end{bmatrix}$
+\end{choices}
+
+\question What will happen if a recursive function does not have a base case?
+\begin{choices}
+  \choice The computer will violently explode.
+  \choice The program will throw a syntax error.
+  \choice The program will crash with a stack overflow.
+  \choice The program will return an incorrect result (logic error).
+\end{choices}
+
+\question What will the following code output if the user enters \texttt{50}?
+\begin{verbatim}
+x = input("num:")
+try:
+    y = x * 2
+    print(f"Result_1: {y}")
+    z = int(x) + 2
+    print(f"Result_2: {z}")
+except ValueError:
+    print("Error!")
+\end{verbatim}
+\begin{choices}
+  \choice Result\_1: 100
+Result\_2: 52
+  \choice Result\_1: 5050
+Result\_2: 52
+  \choice Error!
+  \choice Result\_1: 5050
+Result\_2: Error!
+\end{choices}
+
+\question What will be printed when the following code runs?
+\begin{verbatim}
+a, b, c = 10, 25, 30
+if a > b:
+    if b > c:
+        print("David")
+    else:
+        print("Mohammad")
+else:
+    if a + b > c:
+        print("Eleena")
+        if c - a == b:
+            print("Jakob")
+        else:
+            print("Tiffany")
+    else:
+        print("Aayla")
+\end{verbatim}
+\begin{choices}
+  \choice David
+  \choice Mohammad
+  \choice Jakob
+  \choice Aayla
+\end{choices}
+
+\question What will the following code return?
+\begin{verbatim}
+aaa = 10
+bbb = [5, 15]
+
+def foo():
+    aaa = 20
+    bbb[0] = 50
+    print(aaa)
+
+def bar():
+    global aaa
+    aaa = 30
+    bbb = [100, 200]
+    return bbb
+
+ccc = foo()
+ddd = bar()
+print(aaa, bbb, ccc, ddd)
+\end{verbatim}
+\begin{choices}
+  \choice 20
+30 [50, 15] None [100, 200]
+  \choice 20
+10 [50, 15] 20 [100, 200]
+  \choice 10
+10 [50, 15] None [5, 15]
+  \choice 20
+30 [100, 200] 20 [100, 200]
+\end{choices}
+
+\question Which of the following inputs $(x, y)$ will make this code output ``yippee''? Select all that apply.
+\begin{verbatim}
+x = int(input("num: "))
+y = int(input("num: "))
+
+if x > 0 and y > 0:
+    print("yippee")
+elif x < 0 and y < 0:
+    print("no")
+elif x > 0 or y > 0:
+    if x == 0 or y == 0:
+        print("no")
+    else:
+        print("yippee")
+else:
+    print("no")
+\end{verbatim}
+\begin{checkboxes}
+  \choice (2, 4)
+  \choice (2, -4)
+  \choice (-2, 0)
+  \choice (-2, -4)
+  \choice (0, 0)
+  \choice none of these
+\end{checkboxes}
+
+\question What will the following code output?
+\begin{verbatim}
+counter = 0
+for i in range(6):
+    if i % 2 == 0:
+        continue
+    for j in range(3):
+        if j == 2:
+            break
+        counter += 1
+        if i + j > 3:
+            counter += 1
+            break
+print(counter)
+\end{verbatim}
+\begin{choices}
+  \choice 5
+  \choice 6
+  \choice 7
+  \choice 8
+  \choice 9
+  \choice the code will not execute OR infinite loop
+\end{choices}
+
+\question What will the following code output?
+\begin{verbatim}
+matrix = [
+    [1, 2, 3, 4],
+    [2, 1, 4, 3],
+    [3, 4, 1, 2],
+    [2, 3, 4, 1]
+]
+matrix[1].pop(2)
+matrix[3].remove(matrix[2][2])
+matrix.insert(2, [2, 4, 1, 3])
+matrix[2].remove(3)
+matrix.pop(1)
+matrix[3].insert(1, matrix[2].pop(3))
+print(matrix)
+\end{verbatim}
+\begin{choices}
+  \choice [[2,4,1], [2,1], [4,4,2], [2,3,4,1]]
+  \choice [[1,2,3,4], [2,4,1], [3,4,1], [2,2,3,4]]
+  \choice [[1,2,3,4], [2,4,1], [3,4,1], [2,2,4,1]]
+  \choice [[1,2,3,4], [2,4,1], [4,1,2], [2,3,4,1]]
+\end{choices}
+
+\question What will the following code output?
+\begin{verbatim}
+names = {
+    1: ['Isa', 'Sandra', 'Alik'],
+    2: ['Kyle', 'Nolan', 'Tinaye'],
+    3: ['Simon', 'Jon-Luca', 'Cindy']
+}
+
+result = []
+for key, value in names.items():
+    if len(value[0]) % key == 0:
+        result.append(value[1])
+    elif key + len(value[0]) > 5:
+        result.append(value[2])
+print(result)
+\end{verbatim}
+\begin{choices}
+  \choice ['Isa', 'Kyle', 'Nolan']
+  \choice ['Jon-Luca', 'Sandra']
+  \choice ['Sandra', 'Nolan', 'Cindy']
+  \choice ['Alik', 'Tinaye', 'Jon-Luca']
+\end{choices}
+
+\question What will the following code output?
+\begin{verbatim}
+def fac(n):
+    if n == 0:
+        return 1
+    return n * fac(n - 1)
+
+def fib(n):
+    if n <= 1:
+        return n
+    return fac(n - 1) + fib(n - 2)
+
+print(fib(5))
+\end{verbatim}
+\begin{choices}
+  \choice 7
+  \choice 27
+  \choice 48
+  \choice 64
+\end{choices}
+
+\question What will the following code output?
+\begin{verbatim}
+try:
+    data = {"a": 1, "b": 2}
+    value = 10 / 0
+    value = data["c"]
+except ZeroDivisionError as e:
+    print(f"oops, {e}")
+except LookupError as e:
+    print(f"oopsie: {e}")
+except Exception as e:
+    print(f"oops again: {e}")
+\end{verbatim}
+\begin{choices}
+  \choice oops, division by zero
+  \choice oops, division by zero
+oopsie: 'c'
+oops again: 'c'
+  \choice oops, division by zero
+oopsie: 'c'
+oops again: division by zero
+  \choice oops again: 'c'
+\end{choices}
+
+\question What should we replace line 9 with to make the code function as intended?
+\begin{verbatim}
+class Robot:
+    def __init__(self, model, task):
+        self.model = model
+        self.task = task
+
+    def perform_task(self):
+        return f"Robot {self.model} is performing: {self.task}"
+
+# i'm on break, fix it yourself
+print(worker.perform_task())
+\end{verbatim}
+\begin{choices}
+  \choice worker = new Robot("PhatGPT", "yapping")
+  \choice worker = Robot("WALL-E", "garbage collection")
+  \choice worker = new Robot("Sonny")
+  \choice $worker = Robot.perform_task("GLaDOS", "experiment")$
+\end{choices}
 
 \end{questions}
-
 \end{document}
