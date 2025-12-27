@@ -1,0 +1,365 @@
+\documentclass[11pt,letterpaper]{exam}
+\usepackage{../study_session}
+\usepackage{graphicx}
+
+\pagestyle{headandfoot}
+\runningheadrule
+\firstpageheadrule
+
+\firstpageheader{COMP 2401}{Study Session Practice Questions}{\today}
+\runningheader{COMP 2401}{Study Session Practice Questions}{Page \thepage\ of \numpages}
+\runningfooter{}{}{}
+
+\title{COMP 2401 Introduction to Systems Programming}
+\author{Study Session Questions}
+
+\begin{document}
+\maketitle
+\vspace{1em}
+
+\begin{questions}
+
+\section*{CH 1--2: Bits, Bytes, and Strings}
+
+\question Select all the bit models that support representing both positive and negative integer values.
+\begin{checkboxes}
+\choice Magnitude-only Bit Model
+\choice Sign-Magnitude Bit Model
+\choice Two’s Complement Bit Model
+\choice Fixed-Point Bit Model
+\choice Floating-Point Bit Model
+\choice ASCII and Unicode Bit Model
+\end{checkboxes}
+
+\question An 8-bit representation of \texttt{10010011} could represent all of the following values. Select all that apply.
+\begin{checkboxes}
+\choice hexadecimal \texttt{0x93}
+\choice hexadecimal \texttt{0x39}
+\choice signed decimal \texttt{-109}
+\choice unsigned decimal \texttt{147}
+\choice ASCII character \texttt{F}
+\choice ASCII character \texttt{@}
+\end{checkboxes}
+
+\question Consider unsigned integer variables \texttt{x} and \texttt{y} with:\\
+\texttt{x = 00110110} and \texttt{y = 11001100}\\
+Which of the following statements are CORRECT? Select all that apply.
+\begin{checkboxes}
+\choice \texttt{printf("\%d\textbackslash n", x \& y); = 4}
+\choice \texttt{printf("\%d\textbackslash n", x | y); = 254}
+\choice \texttt{printf("\%d\textbackslash n", x \& \textasciitilde y); = 6}
+\choice \texttt{printf("\%d\textbackslash n", x | (y >> 4)); = 58}
+\choice \texttt{printf("\%d\textbackslash n", (x >> 3) \& (y << 1)); = 24}
+\choice \texttt{printf("\%d\textbackslash n", (x \^{} y) >> 1); = 125}
+\end{checkboxes}
+
+\question Which of the following declarations define a valid null-terminated string containing \texttt{"hello"}? Select all that apply.
+\begin{checkboxes}
+\choice \texttt{char s[5] = "hello";}
+\choice \texttt{char *s = "hello";}
+\choice \texttt{char s[6] = "hello";}
+\choice \texttt{char s[] = "hello";}
+\choice \texttt{char s[10] = "hello";}
+\choice \texttt{char s[] = \{'h','e','l','l','o'\};}
+\end{checkboxes}
+
+\question What is the exact output of this program? Type it below.
+\begin{verbatim}
+#include <stdio.h>
+#include <string.h>
+
+int main(void) {
+  char buf[20];
+
+  strcpy(buf, "COMP");
+  strncat(buf, "2401A", 4);
+
+  int len = strlen(buf);
+  sprintf(buf + len, "_%d", len);
+
+  int cmp = strcmp(buf, "COMP2401_8");
+
+  printf("%s+%d", buf, cmp);
+  return 0;
+}
+\end{verbatim}
+\shortanswer[0.75in]{}
+
+\question On a little-endian machine, what will this program print? Type it below.
+\begin{verbatim}
+#include <stdio.h>
+#include <string.h>
+
+typedef union {
+  unsigned int i;
+  unsigned char b[4];
+} U;
+
+int main(void) {
+  U u;
+  u.b[0] = 0x11;
+  u.b[1] = 0x22;
+  u.b[2] = 0x33;
+  u.b[3] = 0x44;
+  printf("0x%x", u.i);
+  return 0;
+}
+\end{verbatim}
+\shortanswer[0.75in]{}
+
+\question On a 64-bit Linux machine (System V ABI), what will the following program print?
+\begin{verbatim}
+#include <stdio.h>
+
+struct A {
+  char c;
+  int i;
+};
+
+struct B {
+  int i;
+  char c;
+};
+
+int main(void) {
+  printf("%lu %lu\n", sizeof(struct A), sizeof(struct B));
+  return 0;
+}
+\end{verbatim}
+\begin{choices}
+\choice \texttt{16 12}
+\choice \texttt{20 16}
+\choice \texttt{20 12}
+\choice \texttt{14 14}
+\end{choices}
+
+\section*{CH 3: Pointers, Stack/Heap, and Memory Allocation}
+
+\question Match each memory area in C to what it stores.
+\begin{matching}
+\mitem{1}{Data segment}{A}{stores global variables and static variables}
+\mitem{2}{Code segment}{B}{stores program instructions and addresses of functions}
+\mitem{3}{Heap segment}{C}{stores dynamically-allocated memory}
+\mitem{4}{Stack segment}{D}{stores local variables and order of function calls}
+\end{matching}
+
+\question What practices help prevent memory leaks in long-running C programs? Select all options that apply.
+\begin{checkboxes}
+\choice always pairing each \texttt{malloc/calloc/realloc} with a matching \texttt{free()}
+\choice using tools like Valgrind or AddressSanitizer to detect leaks
+\choice zeroing out pointers immediately after \texttt{free(p)} (e.g., \texttt{p = NULL})
+\choice checking that \texttt{malloc()} returned non-null before writing to its block
+\end{checkboxes}
+
+\question Which of the following lines evaluate to 4? Select all that apply.
+\begin{checkboxes}
+\choice line A
+\choice line B
+\choice line C
+\choice line D
+\choice line E
+\choice line F
+\end{checkboxes}
+
+\question Match each function with what it's used for.
+\begin{matching}
+\mitem{1}{malloc}{A}{used when you don't care about the initial contents of the memory}
+\mitem{2}{calloc}{B}{used when you need zeroed memory (for arrays / structs)}
+\mitem{3}{realloc}{C}{used when you need to grow or shrink an existing allocation}
+\end{matching}
+
+\question Which of the following lines correctly declare a pointer to this function? Select any that apply.
+\begin{checkboxes}
+\choice line A
+\choice line B
+\choice line C
+\choice line D
+\choice line E
+\choice line F
+\end{checkboxes}
+
+\mcquestion{Which one of these statements is true?}{
+\choice Both \texttt{x} and \texttt{y} will be freed correctly.
+\choice Only \texttt{x} is freed; \texttt{y} is leaked.
+\choice Only \texttt{y} is freed; \texttt{x} is leaked.
+\choice Neither \texttt{x} nor \texttt{y} is freed.
+}
+
+\mcquestion{Which one of these statements are true?}{
+\choice \texttt{list} itself is stack-allocated; its elements live on the heap
+\choice both the \texttt{list} pointer and its elements live on the heap
+\choice \texttt{init\_students} must use \texttt{struct Student **} to work
+\choice this leaks because \texttt{init\_students} never \texttt{malloc}s
+\choice both the \texttt{list} pointer and its elements live on the stack
+\choice \texttt{list} itself is heap-allocated; its elements live on the stack
+}
+
+\question Fill in lines 12, 13, and 14 below with the correct implementation. Select the 3 answers that apply.
+\begin{checkboxes}
+\choice \texttt{s.user = u;}
+\choice \texttt{s.user = \&u;}
+\choice \texttt{s.user.uid = 13;}
+\choice \texttt{s.user->uid = 13;}
+\choice \texttt{strcpy(u.name, "Aaryan");}
+\choice \texttt{strcpy(u->name, "Aaryan");}
+\end{checkboxes}
+
+\mcquestion{What does this code print?}{
+\choice Compiler/Syntax Error
+\choice 0
+\choice 1
+\choice 2
+\choice 3
+\choice 4
+}
+
+\question Which line should be added to line X to prevent the memory leak?
+\begin{choices}
+\choice \texttt{free(score);}
+\choice \texttt{free(\&score);}
+\choice \texttt{free(*score);}
+\choice \texttt{free(*\&score);}
+\choice \texttt{score = NULL;}
+\choice The memory leak cannot be prevented in \texttt{main()}.
+\end{choices}
+
+\section*{CH 4 \& 7: Compilation, Linking, and Program Structure}
+
+\question Match each term with what it does.
+\begin{matching}
+\mitem{1}{Editor}{A}{creates the source \texttt{.c} files}
+\mitem{2}{Compiler}{B}{what \texttt{make} uses to translate C files into \texttt{.o} files}
+\mitem{3}{Linker}{C}{combines object files and libraries into the executable}
+\mitem{4}{Loader}{D}{executes the resulting binary on the desired platform}
+\end{matching}
+
+\question Match each variable keyword category with its purpose.
+\begin{matching}
+\mitem{1}{storage class specifier}{A}{specifies where a variable lives (i.e. \texttt{static}, \texttt{extern}, \texttt{register})}
+\mitem{2}{type qualifier}{B}{tells the compiler about special constraints (i.e. \texttt{const}, \texttt{volatile})}
+\mitem{3}{type modifier}{C}{defines how a data type's bits are interpreted (i.e. \texttt{unsigned}, \texttt{long})}
+\mitem{4}{base type}{D}{defines what kind of value a variable holds (i.e. \texttt{int}, \texttt{float}, \texttt{char})}
+\end{matching}
+
+\mcquestion{A correct dependency-aware Makefile will re-compile:}{
+\choice all \texttt{.c} files in the directory, every time you invoke \texttt{make}
+\choice only the \texttt{.c} files you list on the \texttt{make} command line
+\choice only those files whose corresponding \texttt{.c} file is newer than the \texttt{.o} file
+\choice only those \texttt{.c} files whose corresponding \texttt{.o} file is newer than the \texttt{.c} file
+\choice only those \texttt{.c} files without an associated \texttt{.o} fie
+}
+
+\shortanswer[1.0in]{Write an exact shell command to compile and link \texttt{x.c} and \texttt{y.c} into an executable named \texttt{file}.}
+
+\question Which of the following should go in header files (\texttt{.h})? Select all that apply.
+\begin{checkboxes}
+\choice global constant declarations
+\choice forward declarations of function prototypes
+\choice global type definitions
+\choice function implementations
+\choice global variable declarations
+\choice the \texttt{main} program to start the code
+\end{checkboxes}
+
+\question Which scenarios are examples of concurrent computing? Select all that apply.
+\begin{checkboxes}
+\choice a program uses \texttt{pthread}s to parallelize matrix multiplication
+\choice a single-threaded bash script reads, processes, then writes output data
+\choice an HTTP server \texttt{fork()}s each connection into a new process
+\choice a program uses \texttt{malloc()} to compute Fibonacci numbers in order
+\choice a utility processes log files sequentially in a loop
+\choice an MPI application distributes tasks across multiple hosts
+\end{checkboxes}
+
+\section*{CH 5: Processes, Threads, and Synchronization}
+
+\question Match the problem in concurrent systems with its scenario.
+\begin{matching}
+\mitem{1}{Contention}{A}{many threads wait on a mutex held for too long, slowing throughput}
+\mitem{2}{Deadlock}{B}{thread A holds \texttt{M1} and waits for \texttt{M2}, while thread B holds \texttt{M2} and waits for \texttt{M1}}
+\mitem{3}{Race condition}{C}{two threads increment a shared counter without locking, producing an incorrect final count}
+\mitem{4}{Starvation}{D}{a low-priority thread never runs because higher-priority threads keep getting the CPU}
+\end{matching}
+
+\question Select the statements that are TRUE about sharing between threads and processes.
+\begin{checkboxes}
+\choice threads in a process share the same virtual memory but use separate stacks
+\choice each process has its own independent virtual memory
+\choice every thread has its own separate copy of global variables
+\choice one process can directly read/write another process's heap without IPC
+\choice threads share OS resources like file descriptors and signal handlers
+\choice \texttt{fork()} is typically faster than \texttt{pthread\_create()}.
+\end{checkboxes}
+
+\question Match each process-management system call with its definition.
+\begin{matching}
+\mitem{1}{\texttt{exec}}{A}{replaces the current process image with a new program's image}
+\mitem{2}{\texttt{fork}}{B}{creates a child process that is an (almost) exact duplicate of the parent}
+\mitem{3}{\texttt{system}}{C}{runs a shell command string and waits for it to finish}
+\mitem{4}{\texttt{wait}}{D}{pauses the parent until one of its children terminates}
+\end{matching}
+
+\question Sockets, signals, semaphores; select the sound statements swiftly.
+\begin{checkboxes}
+\choice \texttt{SIGKILL} can be caught and blocked by a process.
+\choice \texttt{sem\_post()} decrements the semaphore count.
+\choice \texttt{kill()} sends a signal to a specified process.
+\choice Named semaphores can be shared across processes.
+\choice Sockets support both stream and datagram modes.
+\choice Signals are async notifications sent to processes.
+\end{checkboxes}
+
+\question Match each scenario with the IPC mechanism best-suited for it.
+\begin{matching}
+\mitem{1}{notify a process asynchronously when an event occurs}{A}{signals}
+\mitem{2}{ensure exclusive access to shared resources between processes}{B}{semaphores}
+\mitem{3}{communicate reliably between processes on different hosts}{C}{sockets}
+\mitem{4}{share a large data buffer efficiently among local processes}{D}{shared memory}
+\end{matching}
+
+\question Select the true statements about TCP and UDP.
+\begin{checkboxes}
+\choice TCP is a connection-oriented protocol that ensures ordered data delivery.
+\choice UDP is connectionless and provides no guarantees on reliability/ordering.
+\choice TCP is preferred for real-time/broadcast scenarios (like VoIP or streaming).
+\choice UDP only handles one-to-one connections.
+\choice TCP establishes a session via a three-way handshake before any data is sent.
+\choice UDP automatically retransmits lost packets until they are acknowledged.
+\end{checkboxes}
+
+\section*{CH 6: File I/O, Buffering, and Libraries}
+
+\question Match the buffering mode with a typical use case.
+\begin{matching}
+\mitem{1}{unbuffered}{A}{error messages via \texttt{stderr}}
+\mitem{2}{line-buffered}{B}{interactive \texttt{stdout} and \texttt{stdin} in a terminal session}
+\mitem{3}{fully buffered}{C}{bulk data writes to files or network sockets}
+\end{matching}
+
+\question Select all the true statements about file I/O and buffering.
+\begin{checkboxes}
+\choice In the course VM, the standard output \texttt{stdout} is unbuffered.
+\choice \texttt{feof()} only returns true after an attempted read has reached EOF.
+\choice Calling \texttt{fclose(stream)} will auto-flush its buffer before closing.
+\choice \texttt{fscanf()} can be used on both text and binary files.
+\end{checkboxes}
+
+\question Sequence these calls to read the 5th record from a binary file (called \texttt{data.bin}) into a struct \texttt{rec}. Type the correct sequence below (e.g., 3 1 4 2).
+\begin{verbatim}
+(1) if (!fp) { return EXIT_FAILURE; }
+(2) fread(&rec, sizeof(Record), 1, fp);
+(3) FILE *fp = fopen("data.bin", "rb");
+(4) fseek(fp, sizeof(Record) * 4, SEEK_SET);
+\end{verbatim}
+
+\mcquestion{Which of the following are \emph{sinks} in I/O terminology?}{
+\choice Keyboard (\texttt{stdin})
+\choice File opened with mode \texttt{"r"}
+\choice Socket opened for reading
+\choice File opened with mode \texttt{"w"}
+}
+
+\question What will be the output of this code? Type it below.
+
+\end{questions}
+\end{document}
