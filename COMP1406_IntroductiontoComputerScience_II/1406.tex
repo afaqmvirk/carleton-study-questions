@@ -19,7 +19,7 @@
 
 \begin{questions}
 
-\section*{Part 1: Principles of OOP}
+\section*{Principles of OOP}
 
 \question Which of the following are OOP principles? Select all that apply.
 \begin{checkboxes}
@@ -51,8 +51,9 @@
 \choice To use runtime polymorphism.
 \choice To inherit properties from a parent class.
 }
+\newpage
 
-\shortanswer[1.0in]{Place the four access modifiers in order, starting with the highest level of encapsulation.}
+\shortanswer{Place the four access modifiers in order, starting with the highest level of encapsulation.}
 
 \mcquestion{What is the concept of inheritance in Java?}{
 \choice A method of implementing interfaces for improved organization.
@@ -61,9 +62,9 @@
 \choice A mechanism for one class to acquire the properties and methods of another.
 }
 
-\shortanswer[0.75in]{Which keyword is used to inherit a class in Java?}
+\shortanswer{Which keyword is used to inherit a class in Java?}
 
-\shortanswer[0.75in]{What operator can be used to check the type of an object?}
+\shortanswer{What operator can be used to check the type of an object?}
 
 \mcquestion{What is the difference between an abstract class and an interface in Java?}{
 \choice an interface shouldn't have attributes or constants, an abstract class can
@@ -82,11 +83,13 @@
 \choice class A inherits all non-private members of class B
 \end{checkboxes}
 
+\newpage
+
 \mcquestion{Assume we are designing a BankAccount class. Which of the following methods are very likely to be static?}{
-\choice deposit()
-\choice getBalance()
-\choice convertToUSD()
-\choice getExchangeRate()
+\choice \texttt{deposit()}
+\choice \texttt{getBalance()}
+\choice \texttt{convertToUSD()}
+\choice \texttt{getExchangeRate()}
 }
 
 \question Which of the following are true of the final modifier? Select all that apply.
@@ -111,7 +114,7 @@
 \choice abstract classes cannot have a constructor
 \end{checkboxes}
 
-\section*{Week 3: Polymorphism and ADTs}
+\section*{Polymorphism and ADTs}
 
 \mcquestion{What is polymorphism in Java?}{
 \choice the property of an object to inherit more than one superclass at once
@@ -215,7 +218,7 @@ class Pizza extends Food {
 
 \shortanswer[0.75in]{What is the time complexity of searching for an element in a singly linked list?}
 
-\section*{Week 5: GUIs, JavaFX, and MVC}
+\section*{GUIs, JavaFX, and MVC}
 
 \mcquestion{Which of the following is NOT a feature of JavaFX?}{
 \choice Styling using CSS
@@ -254,9 +257,9 @@ class Pizza extends Food {
 \choice Focus change events
 }
 
-\section*{Wrap-Up: Code Tracing}
+\section*{Code Tracing}
 
-\question {[Lecture 01, 02, 04] What will be the output of this code?}
+\question {What will be the output of this code?}
 \begin{verbatim}
 class Book {
     String title;
@@ -270,8 +273,8 @@ class Book {
 
 public class Test {
     public static void main(String[] args) {
-        Book book1 = new Book("how to be a sigma", 29.99);
-        Book book2 = new Book("how to be a sigma", 29.99);
+        Book book1 = new Book("Title1", 29.99);
+        Book book2 = new Book("Title1", 29.99);
         System.out.print(book1 == book2);
         System.out.print(book1.title.equals(book2.title));
     }
@@ -284,7 +287,7 @@ public class Test {
 \choice truetrue
 \end{choices}
 
-\question {[Lecture 04, 07] What will be the output of this code?}
+\question {What will be the output of this code?}
 \begin{verbatim}
 class Course {
     void enroll(Course course) {
@@ -318,7 +321,7 @@ public class Test {
 \choice CS student enrols in course.\newline Student enrols in CS course.
 \end{choices}
 
-\question {[Lecture 06, 07] What will be the output of this code?}
+\question {What will be the output of this code?}
 \begin{verbatim}
 interface Club {
     void join();
@@ -351,7 +354,7 @@ public class Test {
 \choice Exception in thread "main"
 \end{choices}
 
-\question {[Lecture 08] What is the output of the following code?}
+\question {What is the output of the following code?}
 \begin{verbatim}
 import java.util.ArrayList;
 
@@ -372,7 +375,7 @@ public static void main(String[] args) {
 \choice [2, 4, 1]
 \end{choices}
 
-\question {[Lecture 09] What is the output of the following code?}
+\question {What is the output of the following code?}
 \begin{verbatim}
 import java.util.HashMap;
 
@@ -391,7 +394,7 @@ public static void main(String[] args) {
 \choice Compilation Error
 \end{choices}
 
-\question {[Lecture 10] What is the output of the following code?}
+\question {What is the output of the following code?}
 \begin{verbatim}
 public class Main {
     public static void main(String[] args) {
@@ -418,7 +421,7 @@ public class Main {
 \choice Ahmad,
 \end{choices}
 
-\question {[Lecture 11] What is the output of the following code?}
+\question {What is the output of the following code?}
 \begin{verbatim}
 import java.io.*;
 
@@ -473,7 +476,7 @@ public class Main {
 \choice Compilation Error
 \end{choices}
 
-\question {[Lecture 04, 07] Which of the following lines cause an exception (i.e. are invalid) if left in? Select any that apply.}
+\question {Which of the following lines cause an exception (i.e. are invalid) if left in? Select any that apply.}
 \begin{verbatim}
 class Building {}
 class Residence extends Building {}
@@ -499,7 +502,7 @@ public static void main(String[] args) {
 \choice line 14
 \end{checkboxes}
 
-\question {[Lecture 12, 13, 14] What should we replace line 19 with to achieve the intended functionality of this JavaFX program?}
+\question {What should we replace line 19 with to achieve the intended functionality of this JavaFX program?}
 \begin{verbatim}
 public class Main extends Application {
     public static void main(String[] args) { launch(args); }
