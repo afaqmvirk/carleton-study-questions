@@ -12,6 +12,7 @@
 \RequirePackage{hyperref}
 \RequirePackage{graphicx}
 \RequirePackage{xcolor}
+\RequirePackage{tikz}
 
 \newcommand{\mcquestion}[3][]{%
   \question #2%
@@ -39,7 +40,8 @@
 }
 
 \NewEnviron{matching}{%
-  \begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X
+\\   
+\begin{tabularx}{\textwidth}{@{}>{\raggedright\arraybackslash}X
                                >{\raggedright\arraybackslash}X@{}} \\
     \BODY
   \end{tabularx}
@@ -49,10 +51,10 @@
   \textbf{#1.} #2 & \textbf{#3.} #4 \\[0.5em]
 }
 
-\newcommand{\shortanswer}[3][1.0in]{%
-  \question #3 
+\newcommand{\shortanswer}[2][]{%
+  \question #2 
   
-  \fillwithlines{#1}
+  \fillwithlines{1.0in}
 }
 
 \newcommand{\longanswer}[2][]{%
