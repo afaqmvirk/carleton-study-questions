@@ -19,16 +19,6 @@
 
 \begin{questions}
 
-\section*{Confidence Check}
-
-\question I am confident in my ability to understand propositional logic expressions and argue with quantified predicates.
-
-\question I am confident in my ability to use set identity rules and apply concepts of graph theory.
-
-\question I am confident in my ability to understand Big O notation, combinatorics, functions, relations, and summations.
-
-\question I am confident in my ability to write direct proofs and proofs by \emph{induction}, \emph{contradiction}, and \emph{counterexample}.
-
 \section*{Proofs}
 
 \longanswer{PROVE/DISPROVE: If $x$ and $y$ are rational numbers, then $x \cdot y$ is a rational number.}
@@ -158,10 +148,10 @@
 \tfquestion{A tree of $n$ vertices has exactly $n-1$ edges.}
 
 
-\shortanswer[0.8in]{\textbf{💡} Perform a BFS on this graph, starting from 0. Indicate the order of vertices traversed (i.e. 0 1 2 3 4 5)}
+\shortanswer[0.8in]{Perform a BFS on this graph, starting from 0. Indicate the order of vertices traversed (i.e. 0 1 2 3 4 5)}
 
 
-\shortanswer[0.8in]{\textbf{💡} Perform a DFS on this graph, starting from 1. Indicate the order of vertices traversed (i.e. 1 2 3 4 5 6)}
+\shortanswer[0.8in]{Perform a DFS on this graph, starting from 1. Indicate the order of vertices traversed (i.e. 1 2 3 4 5 6)}
 
 \question \textbf{} What's the adjacency list of the subgraph formed by the first 4 vertices found in a DFS, starting from (and including) 1?
 \begin{choices}
@@ -181,10 +171,48 @@
 
 \question Which of these following chemical graphs are bipartite? Select all that apply.
 \begin{checkboxes}
-\choice pentane
-\choice cyclopentane
-\choice 2-methylbutane
-\choice 1,2,4-trimethylpentane
+\choice pentane\\
+\begin{tikzpicture}[node distance=1cm, every node/.style={circle, draw, minimum size=6mm}]
+  \node (1) {C};
+  \node (2) [right of=1] {C};
+  \node (3) [right of=2] {C};
+  \node (4) [right of=3] {C};
+  \node (5) [right of=4] {C};
+  \draw (1) -- (2) -- (3) -- (4) -- (5);
+\end{tikzpicture}
+
+\choice cyclopentane\\
+\begin{tikzpicture}[every node/.style={circle, draw, minimum size=6mm}]
+  \foreach \i in {1,...,5}
+    \node (\i) at ({90 + \i * 72}:1cm) {C};
+  \draw (1) -- (2) -- (3) -- (4) -- (5) -- (1);
+\end{tikzpicture}
+
+\choice 2-methylbutane\\
+\begin{tikzpicture}[node distance=1cm, every node/.style={circle, draw, minimum size=6mm}]
+  \node (1) {C};
+  \node (2) [right of=1] {C};
+  \node (3) [right of=2] {C};
+  \node (4) [right of=3] {C};
+  \node (M) [below of=2] {C};
+  \draw (1) -- (2) -- (3) -- (4);
+  \draw (2) -- (M);
+\end{tikzpicture}
+
+\choice 1,2,4-trimethylcyclopentane\\
+\begin{tikzpicture}[every node/.style={circle, draw, minimum size=6mm}]
+  \foreach \i in {1,...,5}
+    \node (\i) at ({90 + \i * 72}:1cm) {C};
+  \draw (1) -- (2) -- (3) -- (4) -- (5) -- (1);
+
+  \node (M1) at ({90 + 1 * 72}:2.2cm) {C};
+  \node (M2) at ({90 + 2 * 72}:2.2cm) {C};
+  \node (M4) at ({90 + 4 * 72}:2.2cm) {C};
+
+  \draw (1) -- (M1);
+  \draw (2) -- (M2);
+  \draw (4) -- (M4);
+\end{tikzpicture}
 \end{checkboxes}
 
 \tfquestion{If a graph contains an odd-length cycle, then it is not bipartite.}
