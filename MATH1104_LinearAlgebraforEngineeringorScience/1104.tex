@@ -1,0 +1,449 @@
+\documentclass[11pt,letterpaper]{exam}
+\usepackage{../study_session}
+\usepackage{amsfonts} 
+
+\pagestyle{headandfoot}
+\runningheadrule
+\firstpageheadrule
+
+\firstpageheader{MATH 1104}{Study Session Practice Questions}{\today}
+\runningheader{MATH 1104}{Study Session Practice Questions}{Page \thepage\ of \numpages}
+\runningfooter{}{}{}
+
+\title{MATH 1104 Linear Algebra}
+\author{Study Session Questions}
+
+\begin{document}
+\maketitle
+\vspace{1em}
+
+\section*{Learning Objectives}
+
+\begin{itemize}
+\item You should be confident solving linear systems using row reduction and the matrix equation $Ax=b$, and you should know what linear dependence and span are.
+
+\item You should be confident applying matrix operations, including inverses, and you should know how to calculate determinants and use Cramer's rule.
+
+\item You should be confident analyzing vector spaces by identifying subspaces, computing dimension/rank, and finding bases for a space.
+
+\item You should be confident working with complex numbers and computing eigenvalues and eigenvectors to study diagonalizability.
+
+\item You should be confident calculating inner products, applying projections, and implementing the Gram-Schmidt process for orthonormal bases.
+\end{itemize}
+
+\begin{questions}
+
+\mcquestion{Find the general solution to the corresponding homogenous system of linear equations as defined below.
+\[
+\begin{aligned}
+x_1 + x_2 - x_3 &= 1\\
+2x_1 + 3x_2 - 4x_3 &= 4\\
+x_1 + 2x_2 - 3x_3 &= 2
+\end{aligned}
+\]
+}{
+\choice no solutions
+\choice $(x_1,x_2,x_3)=t(1,0,1)+s(0,1,-2)$
+\choice $(x_1,x_2,x_3)=t(-1,2,1)$
+\choice $(x_1,x_2,x_3)=(1,1,0)$
+}
+
+\question How can we know the size of the solution set of a linear system? Select all true statements.
+\begin{checkboxes}
+\choice An inconsistent system (i.e $\left[\,0\ 0\ 0\mid 3\,\right]$) has no solution
+\choice If the system is square and $\det(A)=0$, the solution is unique
+\choice If all columns in the coefficient matrix are pivots, the solution is unique
+\choice If there are any free variables, the system has infinite solutions
+\choice If the rank is less than the number of variables, there are no solutions
+\choice A consistent system with fewer equations than variables has infinite sols.
+\end{checkboxes}
+
+\mcquestion{Suppose $b=x_1a_1+x_2a_2$ as defined below. What is the sum $x_1+x_2$?
+\[
+a_1=\begin{bmatrix}2\\1\\2\end{bmatrix},\quad
+a_2=\begin{bmatrix}-1\\-1\\-2\end{bmatrix},\quad
+b=\begin{bmatrix}9\\2\\4\end{bmatrix}
+\]
+}{
+\choice 3
+\choice 6
+\choice 9
+\choice 12
+}
+
+\question Given the vectors defined below, which of the following statements are true? Select all that apply.
+\[
+v_1=\begin{bmatrix}1\\0\\2\end{bmatrix},\quad
+v_2=\begin{bmatrix}2\\-1\\1\end{bmatrix},\quad
+v_3=\begin{bmatrix}-2\\0\\0\end{bmatrix}
+\]
+\begin{checkboxes}
+\choice $(3,-1,3)\in \operatorname{Span}\{v_1,v_2\}$
+\choice The zero vector is in $\operatorname{Span}\{v_1,v_3\}$
+\choice $(0,1,2)\in \operatorname{Span}\{v_1,v_3\}$
+\choice $(7,-12,4)\in \operatorname{Span}\{v_1,v_2,v_3\}$
+\choice All three vectors are linearly DEPENDENT.
+\choice All three vectors span $\mathbb{R}^3$.
+\end{checkboxes}
+
+\mcquestion{For what values $(k,h)$ does the system defined below have a unique solution?
+\[
+\begin{bmatrix}
+1&2&1\\
+0&3&4\\
+2&1&k
+\end{bmatrix}
+\begin{bmatrix}
+x\\y\\z
+\end{bmatrix}
+=
+\begin{bmatrix}
+h\\5\\7
+\end{bmatrix}
+\]
+}{
+\choice $k=2,\ h=-3$
+\choice $k\ne -2$, for all $h\in\mathbb{R}$
+\choice $k\ne -3$, for all $h\in\mathbb{R}$
+\choice $k\ne 3,\ k\ne 2$
+\choice $h=4$, for all $k\in\mathbb{R}$
+\choice $k\ne 4$, for all $h\in\mathbb{R}$
+}
+
+\shortanswer[1.2in]{For what values of $m$ is the set $\{u,v\}$ linearly dependent? Type them in numerical order, comma and space separated.
+\[
+u=\begin{bmatrix}m\\1\end{bmatrix},\quad
+v=\begin{bmatrix}2\\m+1\end{bmatrix}
+\]
+}
+
+\question Consider the following augmented matrix of a system of linear equations below. Select all statements that are TRUE.
+\[
+\left[\begin{array}{ccc|c}
+1&3&2&5\\
+0&1&4&-1\\
+0&0&a^2-4a&a-4
+\end{array}\right]
+\]
+\begin{checkboxes}
+\choice When $a=0$, there are infinitely many solutions
+\choice When $a\ne 0$, the system is consistent
+\choice When $a=2$, the system has no solutions
+\choice When $a=2$, the columns of the coefficient matrix are linearly independent
+\choice When $a=4$, there are infinitely many solutions
+\choice When $a\ne 4$, the columns of the coefficient matrix are linearly independent
+\end{checkboxes}
+
+\mcquestion{Compute the original matrix $A$ given its inverse, $A^{-1}$, defined below.
+\[
+A^{-1}=\begin{bmatrix}
+1&-2&5\\
+0&1&-4\\
+0&0&1
+\end{bmatrix}
+\]
+}{
+\choice $\begin{bmatrix}-1&2&-5\\0&-1&4\\0&0&-1\end{bmatrix}$
+\choice $\begin{bmatrix}1&1&1\\0&1&1\\1&0&0\end{bmatrix}$
+\choice $\begin{bmatrix}1&2&3\\0&1&4\\0&0&1\end{bmatrix}$
+\choice $\begin{bmatrix}1&0&0\\4&1&0\\2&5&1\end{bmatrix}$
+\choice the original matrix is the identity matrix
+\choice the original matrix does not exist
+}
+
+\question Which of the following matrices are invertible? Select all that apply.
+\begin{checkboxes}
+\choice $\begin{bmatrix}0&0\\0&0\end{bmatrix}$
+\choice $\begin{bmatrix}3&1&2\\6&2&4\\0&-1&-2\end{bmatrix}$
+\choice $\begin{bmatrix}1&2\\3&4\end{bmatrix}$
+\choice $\begin{bmatrix}0&1&1\\0&0&1\\1&0&0\end{bmatrix}$
+\end{checkboxes}
+
+\question Let $A$, $B$, and $C$ each be $3\times 3$ matrices. If $\det(A)=2$, $\det(B)=4$, and $\det(C)=8$, select all responses that must be true.
+\begin{checkboxes}
+\choice $\det(3A)=18$
+\choice $\det(ABC)=64$
+\choice $\det\left(B^{-1}C^{T}\right)=2$
+\choice $\det\left((2B)^{-1}\right)=\frac{1}{8}$
+\choice $\det\left[A^{-1}(B^{T})^{2}\right]=8$
+\choice $\det(AI)=2$
+\end{checkboxes}
+
+\mcquestion{Let $A$ and $B$ be $3\times 3$ matrices as defined below. If $\det(A)=4$, determine $\det(B)$.
+\[
+A=\begin{bmatrix}
+a&b&c\\
+u&v&w\\
+x&y&z
+\end{bmatrix},\quad
+B=\begin{bmatrix}
+a&3b+5a&c\\
+u&3v+5u&w\\
+x&3y+5x&z
+\end{bmatrix}
+\]
+}{
+\choice $\det(B)=-4$
+\choice $\det(B)=60$
+\choice $\det(B)=4$
+\choice $\det(B)=8$
+\choice $\det(B)=12$
+\choice $\det(B)=20$
+}
+
+\mcquestion{Let $A$ and $B$ be matrices as defined below. Find the matrix $X$ such that $3X-B=AX+2I$.
+\[
+A=\begin{bmatrix}1&1\\0&2\end{bmatrix},\quad
+B=\begin{bmatrix}1&2\\1&0\end{bmatrix},\quad
+3X+B=AX+2I
+\]
+}{
+\choice $\begin{bmatrix}1&1\\1&1\end{bmatrix}$
+\choice $\begin{bmatrix}2&1\\1&3\end{bmatrix}$
+\choice $\begin{bmatrix}3&2\\1&2\end{bmatrix}$
+\choice $\begin{bmatrix}2&2\\1&2\end{bmatrix}$
+}
+
+\mcquestion{Find all values of $k$ for which the matrix $A$ defined below is NOT invertible.
+\[
+A=\begin{bmatrix}
+2&1&k\\
+4&k&9\\
+k&0&0
+\end{bmatrix}
+\]
+}{
+\choice $k=-3$
+\choice $k=3$
+\choice $k=-1$
+\choice $k=1$
+\choice $k=0$
+\choice such a $k$ does not exist
+}
+
+\longanswer{How can Cramer's Rule be used to solve linear systems? Briefly explain in your own words.}
+
+\mcquestion{What is the coordinate vector of $x=(5,0,4)$ relative to basis $B$ as defined below?
+\[
+B=\left\{
+\begin{bmatrix}1\\0\\2\end{bmatrix},
+\begin{bmatrix}0\\1\\1\end{bmatrix},
+\begin{bmatrix}1\\1\\0\end{bmatrix}
+\right\}
+\]
+}{
+\choice $[x]_B=(5,3,-3)$
+\choice $[x]_B=(3,-2,2)$
+\choice $[x]_B=(1,-2,-4)$
+\choice $[x]_B=(-5,0,-4)$
+}
+
+\question Which of the following statements about properties of transformations are TRUE? Select all that apply.
+\begin{checkboxes}
+\choice A linear map is invertible only if it is both one-to-one and onto
+\choice The kernel is the set of all vectors that map to the zero vector
+\choice The range of a transformation is the span of the columns of its matrix
+\choice A transformation from $\mathbb{R}^n$ to $\mathbb{R}^m$ is always invertible if $n>m$
+\choice Any set of independent vectors from the domain can form the standard matrix
+\choice A transformation is one-to-one if its kernel contains only the zero vector
+\end{checkboxes}
+
+\mcquestion{Let $T:\mathbb{R}^4\to \mathbb{R}^3$ be the linear transformation as defined below. Select the most true response.
+\[
+T\left(\begin{bmatrix}x\\y\\z\\w\end{bmatrix}\right)
+=
+\begin{bmatrix}
+x+3w\\
+2x-y+z\\
+4z-5w
+\end{bmatrix}
+\]
+}{
+\choice $T$ is one-to-one (injective).
+\choice $T$ is onto (surjective).
+\choice $T$ is neither injective nor surjective.
+\choice $T$ is bijective, and thus, also invertible.
+}
+
+\question Let $A$ be a $6\times 9$ matrix such that row echelon form has 5 pivot positions. Which of these statements are TRUE?
+\begin{checkboxes}
+\choice $\dim(\operatorname{Nul}A)=4$
+\choice $\operatorname{Rank}A=5$
+\choice $\operatorname{Nul}A=\mathbb{R}^4$
+\choice $\dim(\operatorname{Col}A)=5$
+\end{checkboxes}
+
+\mcquestion{Let matrix $A$ be as defined below. Which of the following sets is a basis for the null space of $A$?
+\[
+A=\begin{bmatrix}
+1&0&-3&2\\
+0&1&2&-4\\
+0&0&0&0
+\end{bmatrix}
+\]
+}{
+\choice $\left\{\begin{bmatrix}3\\-2\\1\\0\end{bmatrix},\begin{bmatrix}-2\\4\\0\\1\end{bmatrix}\right\}$
+\choice $\left\{\begin{bmatrix}1\\0\\0\end{bmatrix},\begin{bmatrix}0\\1\\0\end{bmatrix}\right\}$
+\choice $\left\{\begin{bmatrix}3\\2\\0\\1\end{bmatrix},\begin{bmatrix}2\\-4\\1\\0\end{bmatrix}\right\}$
+\choice $\left\{\begin{bmatrix}-3\\2\\1\\1\end{bmatrix}\right\}$
+}
+
+\question Select all of the sets below that are vector spaces.
+\begin{checkboxes}
+\choice $\left\{\begin{bmatrix}p\\q\\r\end{bmatrix}:\ 3p-4q=r,\ 2q=p+3q\right\}$
+\choice $\left\{\begin{bmatrix}x\\y\\z\end{bmatrix}:\ x-2y+z=5\right\}$
+\choice $\left\{\begin{bmatrix}3\\c\\d\end{bmatrix}:\ c,d\ \text{real}\right\}$
+\choice $\left\{\begin{bmatrix}-a+2b\\a-2b\\3a-6b\end{bmatrix}:\ a,b\ \text{real}\right\}$
+\end{checkboxes}
+
+\mcquestion{Let $A$ be defined below and $w=(0,0,4,-2)$. Select the most correct response.
+\[
+A=\begin{bmatrix}
+3&0&4&8\\
+1&0&3&6\\
+4&-2&2&4\\
+4&1&0&0
+\end{bmatrix}
+\]
+}{
+\choice $w$ is in $\operatorname{Col}A$.
+\choice $w$ is in $\operatorname{Nul}A$.
+\choice $w$ is in both $\operatorname{Col}A$ and $\operatorname{Nul}A$.
+\choice $w$ is in neither $\operatorname{Col}A$ nor $\operatorname{Nul}A$.
+}
+
+\mcquestion{Let $v=(0,1,1)$, an eigenvector of $A$. What is the corresponding eigenvalue?
+\[
+A=\begin{bmatrix}
+4&0&0\\
+0&2&1\\
+0&1&2
+\end{bmatrix}
+\]
+}{
+\choice $-4$
+\choice $4$
+\choice $-3$
+\choice $3$
+\choice $-2$
+\choice $2$
+}
+
+\mcquestion{What is the polar form of the complex number $z=3-3i$?}{
+\choice $6(\cos(-\pi/4)-i\sin(-\pi/4))$
+\choice $3\sqrt{2}(\cos(-\pi/4)+i\sin(-\pi/4))$
+\choice $3\sqrt{2}(\cos(7\pi/4)-i\sin(7\pi/4))$
+\choice $3\sqrt{2}(\sin(\pi/4)+i\cos(\pi/4))$
+}
+
+\question Which of the following equations involving complex numbers are true? Select all that apply.
+\begin{checkboxes}
+\choice The modulus of $3+4i$ is $5$.
+\choice $(2i)^2=4i$
+\choice $(2+3i)(2-3i)=13$
+\choice $i^6=i$
+\choice $\dfrac{3+4i}{1+2i}=i-1$
+\choice $\dfrac{4+3i}{2-i}=5$
+\end{checkboxes}
+
+\mcquestion{Suppose $A$ is a $4\times 4$ NON-invertible matrix. Which of the following cannot be the characteristic polynomial of $A$?}{
+\choice $\lambda^4(\lambda-2)$
+\choice $-(\lambda+3)^2$
+\choice $\lambda^2+4\lambda$
+\choice $-\lambda(\lambda^3-5)$
+}
+
+\mcquestion{$\lambda=4$ is an eigenvalue for the matrix $B$ as defined below. Which one of the following sets is a basis for $E_4$?
+\[
+B=\begin{bmatrix}
+6&-2&4\\
+2&2&4\\
+2&-2&8
+\end{bmatrix}
+\]
+}{
+\choice $\left\{\begin{bmatrix}1\\1\\-1\end{bmatrix},\begin{bmatrix}1\\1\\0\end{bmatrix}\right\}$
+\choice $\left\{\begin{bmatrix}1\\1\\0\end{bmatrix},\begin{bmatrix}-2\\0\\1\end{bmatrix}\right\}$
+\choice $\left\{\begin{bmatrix}2\\0\\2\end{bmatrix}\right\}$
+\choice $\left\{\begin{bmatrix}-1\\1\\0\end{bmatrix}\right\}$
+}
+
+\mcquestion{Exactly one of the following statements involving diagonalizability is TRUE. Which one?}{
+\choice Every invertible matrix is diagonalizable.
+\choice Every diagonalizable matrix is invertible.
+\choice All $n\times n$ diagonalizable matrices have $n$ distinct eigenvalues.
+\choice All $n\times n$ diagonalizable matrices have $n$ linearly independent eigenvectors.
+}
+
+\mcquestion{Select the statement that is most true involving the diagonalizability of matrices $A$ and $B$.
+\[
+A=\begin{bmatrix}3&-1\\1&5\end{bmatrix},\quad
+B=\begin{bmatrix}3&6\\4&1\end{bmatrix}
+\]
+}{
+\choice $A$ is diagonalizable.
+\choice $B$ is diagonalizable.
+\choice Both $A$ and $B$ are diagonalizable.
+\choice Neither $A$ nor $B$ are diagonalizable.
+}
+
+\question Let $u=(1,2,3)$ and $v=(3,2,1)$. Select all statements that are TRUE.
+\begin{checkboxes}
+\choice $u\cdot v=10$
+\choice $\|u\|=\|v\|$
+\choice The vectors $u$ and $v$ are orthogonal
+\choice The sum $u+v$ is orthogonal to the difference $u-v$
+\end{checkboxes}
+
+\mcquestion{Determine the value $k$ for which $v=(k,5,7)$ lies in $W^\perp$ with $W$ as defined below.
+\[
+W=\operatorname{Span}\left\{
+\begin{bmatrix}3\\4\\-2\end{bmatrix},
+\begin{bmatrix}7\\0\\2\end{bmatrix}
+\right\}
+\]
+}{
+\choice $k=-1$
+\choice $k=1$
+\choice $k=-2$
+\choice $k=2$
+\choice any $k$
+\choice no such $k$ exists
+}
+
+\mcquestion{Let $u=(2,1)$ and $v=(1,3)$. What is the angle between $u$ and $v$?}{
+\choice $\pi/2$
+\choice $\pi/3$
+\choice $\pi/4$
+\choice $\pi/6$
+}
+
+\mcquestion{Let $W=\operatorname{Span}\{(1,2,2)\}$ and $x=(2,3,5)$. What is the distance from $x$ to $W$?}{
+\choice $3\sqrt{3}$
+\choice $-\dfrac{7}{2}$
+\choice $2\sqrt{5}$
+\choice $2$
+}
+
+\longanswer{Briefly explain how to use the Gram-Schmidt process to turn linearly-independent vectors into an orthonormal basis.}
+
+\mcquestion{Suppose the columns of $B$ form an orthogonal basis for $\mathbb{R}^4$. If $x=c_1b_1+c_2b_2+c_3b_3+c_4b_4$, what is the value of $c_2$?
+\[
+B=\begin{bmatrix}
+1&2&4&1\\
+2&-1&8&2\\
+3&0&-4&9\\
+4&0&-2&8
+\end{bmatrix},\quad
+x=\begin{bmatrix}7\\5\\-1\\4\end{bmatrix}
+\]
+}{
+\choice $\dfrac{5}{4}$
+\choice $-\dfrac{4}{25}$
+\choice $\dfrac{9}{5}$
+\choice $1$
+}
+
+\end{questions}
+
+\end{document}

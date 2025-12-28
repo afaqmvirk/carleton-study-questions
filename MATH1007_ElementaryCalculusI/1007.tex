@@ -1,0 +1,256 @@
+\documentclass[11pt,letterpaper]{exam}
+\usepackage{../study_session}
+\usepackage{graphicx}
+\graphicspath{{graphics/}}
+
+\pagestyle{headandfoot}
+\runningheadrule
+\firstpageheadrule
+
+\firstpageheader{MATH 1007}{Study Session Practice Questions}{\today}
+\runningheader{MATH 1007}{Study Session Practice Questions}{Page \thepage\ of \numpages}
+\runningfooter{}{}{}
+
+\title{MATH 1007 Elementary Calculus I}
+\author{Study Session Questions}
+
+\begin{document}
+\maketitle
+\vspace{1em}
+
+\section*{Section 1: Precalculus}
+\begin{itemize}
+\item Inequalities
+\item Radicals
+\item Trigonometric properties
+\item Transformations
+\item Domain/Range
+\item Composition
+\end{itemize}
+
+\begin{questions}
+\question Find the product $(4\sqrt{a}-5\sqrt{b})(4\sqrt{a}+5\sqrt{b})$ and express in simplest form.
+\begin{choices}
+\choice $16a-25b$
+\choice $16a+25b$
+\choice $16ab-25ab$
+\choice $16a-10\sqrt{ab}-25b$
+\end{choices}
+
+\question For $f(x)=2e^x$ and $g(x)=x^2$, find the following:
+\begin{matching}
+\mitem{1}{$(f\circ g)(x)$}{A}{$2e^{(x^2)}$}
+\mitem{2}{$(g\circ f)(x)$}{B}{$4e^{2x}$}
+\mitem{3}{$(f\cdot g)(x)$}{C}{$2x^2e^{x}$}
+\mitem{4}{$(f+g)(x)$}{D}{$2e^{x}+x^2$}
+\end{matching}
+
+\question If $\tan(\theta)=\dfrac{12}{5}$, and $0\le \theta \le \dfrac{\pi}{2}$, which of the following are true? Select all that apply.
+\begin{checkboxes}
+\choice $\sin(\theta)=\dfrac{13}{12}$
+\choice $\sin(\theta)=\dfrac{12}{13}$
+\choice $\cos(\theta)=\dfrac{12}{5}$
+\choice $\cos(\theta)=\dfrac{5}{13}$
+\choice $\sec(\theta)=\dfrac{13}{12}$
+\choice $\sec(\theta)=\dfrac{13}{5}$
+\end{checkboxes}
+
+\question Decompose $f(x)=\ln(2x^2+3)$ into $f(x)=p(g(x))$.
+\begin{choices}
+\choice $p(x)=\ln x,\; g(x)=2x^2+3$
+\choice $p(x)=\ln x,\; g(x)=2x^2+3$
+\choice $p(x)=x^2+3,\; g(x)=\ln(2x^2)$
+\choice $p(x)=x,\; g(x)=\ln(2x^2+3)$
+\choice $p(x)=2x^2+3,\; g(x)=\ln x$
+\choice none of these are true
+\end{choices}
+
+\question Match each inequality to its solution in interval notation.
+\begin{matching}
+\mitem{1}{$x(x+4)(x-6)\le 0$}{A}{$(-\infty,-4]\cup[0,6]$}
+\mitem{2}{$x(x-4)(x+6)\ge 0$}{B}{$[-6,0]\cup[4,\infty)$}
+\mitem{3}{$x(x+6)(x-4)< 0$}{C}{$(-\infty,-6)\cup(0,4)$}
+\mitem{4}{$x(x-6)(x+4)> 0$}{D}{$(-4,0)\cup(6,\infty)$}
+\end{matching}
+
+\question Given $\dfrac{x^2-4}{x-2}$, determine the domain and range.
+\begin{checkboxes}
+\choice $D : (-\infty, -2] \cup (2,\infty)$
+\choice $R : (0,\infty)$
+\choice $D : (-2,2)\cup (2,\infty)$
+\choice $R : (-\infty,0)\cup (0,\infty)$
+\choice $D : (-\infty,2)\cup [2,\infty)$
+\choice $R : (-1,0]\cup (1,\infty)$
+\end{checkboxes}
+
+\question Solve $\dfrac{3\cos^2 x-(7\cos x)}{2(\cos x)(2-\cos x)}=0$ over the interval $[0,2\pi)$.
+\begin{choices}
+\choice $x=0$
+\choice $x=\dfrac{\pi}{2}$
+\choice $x=\dfrac{2\pi}{3}$
+\choice $x=\pi$
+\choice $x=\dfrac{4\pi}{3}$
+\choice $x=\dfrac{3\pi}{2}$
+\end{choices}
+
+\question Match each function with one of the graphs below.
+\begin{checkboxes}
+\choice $f(x)=(x-2)^2-1$
+\choice $f(x)=-\big((x+1)^2+2\big)$
+\choice $f(x)=(x-1)^2+2$
+\choice $f(x)=(x-1)^2-2$
+\end{checkboxes}
+
+\newpage
+\section*{Section 2: Limits}
+\begin{itemize}
+\item Limits of common functions
+\item Limit rules
+\item L'H\^{o}pital's rule
+\item Squeeze Theorem
+\end{itemize}
+
+\question Which of the following statements are true? Select all that apply.\\[0.5em]
+\includegraphics[width=0.5\textwidth]{q11_graph.png}
+\begin{checkboxes}
+\choice $\displaystyle \lim_{x\to -\infty} f(x)=1$
+\choice $\displaystyle \lim_{x\to 0} f(x)=1$
+\choice $\displaystyle \lim_{x\to 0^-} f(x)=2$
+\choice $\displaystyle \lim_{x\to 3^+} f(x)=3$
+\choice $f(3)=3$
+\choice $f(0)=2$
+\end{checkboxes}
+
+\question Sort the values of the following limits from greatest to least.
+\begin{parts}
+\part $\displaystyle \lim_{x\to 0}\frac{2^x+\sin(x)}{x^4}$
+\part $\displaystyle \lim_{x\to 5}\frac{x^2-25}{x^2-4x-5}$
+\part $\displaystyle \lim_{x\to -\infty} 3\left(\frac{x-3}{5-x}\right)$
+\part $\displaystyle \lim_{x\to 0} \big(24\ln(x)\big)$
+\end{parts}
+\vspace{0.5em}
+\fillwithlines{1.0in}
+
+\shortanswer[1.0in]{Find the value of $k$ such that $\displaystyle \lim_{x\to 5}\frac{x^2+kx-20}{x-5}$ exists and is finite.}
+
+\question Which of the following are true for the piecewise function $f(t)$ described below? Select all that apply.
+\[
+f(t)=
+\begin{cases}
+t^2 & \text{for } t<-2\\[0.25em]
+\dfrac{t+6}{t^2-t} & \text{for } -1<t<2\\[0.5em]
+3t-2 & \text{for } t\ge 2
+\end{cases}
+\]
+\begin{checkboxes}
+\choice $\displaystyle \lim_{t\to 2} f(t)=4$
+\choice $f\!\left(-\dfrac{3}{2}\right)$ DNE
+\choice $f(2)=4$
+\choice $\displaystyle \lim_{t\to -1^+} f(t)=\dfrac{5}{2}$
+\choice $\displaystyle \lim_{t\to 0} f(t)=\infty$
+\choice none of these
+\end{checkboxes}
+
+\question Sort the values of the following limits from greatest to least.
+\begin{parts}
+\part $\displaystyle \lim_{x\to \frac{\pi}{4}} \frac{\ln(\tan x)}{\sin x-\cos x}$
+\part $\displaystyle \lim_{x\to 0} x\sin\left(\frac{1}{x}\right)$
+\part $\displaystyle \lim_{x\to 0} \frac{e^x-x-1}{\cos x-1}$
+\end{parts}
+\vspace{0.5em}
+\fillwithlines{1.0in}
+
+\question Which of the following are true? Use l'H\^{o}pital's rule or Squeeze Theorem where needed.
+\begin{checkboxes}
+\choice $\displaystyle \lim_{x\to \infty}\left(\frac{e^{-x}}{\sin(x)+2}\right)$ DNE
+\choice $\displaystyle \lim_{x\to \infty}\left(x^{\frac{1}{\ln x}}\right)=e$
+\choice $\displaystyle \lim_{x\to 0}\frac{e^{-x}}{\sin x}$ DNE
+\choice $\displaystyle \lim_{x\to \infty}\frac{e^x}{x}=$ DNE
+\end{checkboxes}
+
+\newpage
+\section*{Section 3: Derivatives}
+\begin{itemize}
+\item Chain Rule
+\item Product/Quotient Rules
+\item Trigonometric functions
+\item Second derivatives
+\item Curve Sketching
+\end{itemize}
+
+\mcquestion{Which of the following functions are NOT differentiable for at least one real value of $x$?}{
+\choice $f(x)=x^2+1$
+\choice $f(x)=|x|$
+\choice $f(x)=\dfrac{1}{x^2+1}$
+\choice $f(x)=x^3-3x$
+}
+
+\mcquestion{Determine $\dfrac{dy}{dx}$ for $\dfrac{x^2-4}{x^2+4}$ when $x=1$.}{
+\choice $-\dfrac{16}{25}$
+\choice $\dfrac{16}{25}$
+\choice $\dfrac{4}{25}$
+\choice $1$
+}
+
+\mcquestion{Determine $\dfrac{dy}{dx}$ for $\ln(5x^2+9)$ when $x=1$.}{
+\choice $1$
+\choice $\dfrac{5}{7}$
+\choice $\dfrac{25}{9}$
+\choice $0$
+}
+
+\mcquestion{Determine $\dfrac{dy}{dx}$ for $\dfrac{x}{1-(\ln x)^2}$ when $x=1$.}{
+\choice $0$
+\choice $1$
+\choice $e$
+\choice undefined
+}
+
+\mcquestion{Determine $\dfrac{dy}{dx}$ for $\cos(\tan x)$ when $x=\pi$.}{
+\choice $0$
+\choice $1$
+\choice $\dfrac{1}{2}$
+\choice undefined
+}
+
+\mcquestion{Find an equation of the tangent line to $x^4+y^2=3$ at $(1,-2)$.}{
+\choice $y=x+2$
+\choice $y=\dfrac{1}{2}x-2$
+\choice $y=2(x-2)$
+\choice $y=\dfrac{1}{2}(x+2)$
+}
+
+\newpage
+\section*{Section 4: Integrals}
+\begin{itemize}
+\item uh oh
+\end{itemize}
+
+\question Let $F(x)=\displaystyle\int_1^x t^2+3\;dt$. Which of the following are true?
+\begin{checkboxes}
+\choice $F(1)=0$
+\choice $F(1)=1$
+\choice $F'(1)=\dfrac{1}{2}$
+\choice $F'(1)=2$
+\choice $F''(1)=2$
+\choice $F''(1)=\dfrac{1}{2}$
+\end{checkboxes}
+
+\shortanswer[1.0in]{Find the exact area of the region that lies beneath the curve $y=6^{4}x$ from $1\le x\le 16$.}
+
+\mcquestion{Determine $f(x)$ given that $f'(x)=12x^2-4x$ and $f(-3)=17$.}{
+\choice $f(x)=6x^3-4x^2+143$
+\choice $f(x)=4x^3-2x^2+143$
+\choice $f(x)=4x^3-2x^2+140$
+\choice $f(x)=3x^3-2x^2+150$
+}
+
+\shortanswer[1.0in]{Evaluate the definite integral $\displaystyle \int_1^9 \frac{6x^2+23}{x}\,dx$.}
+
+\shortanswer[1.0in]{Find the area of the region enclosed by the curves $y=5x,\; y=6x^2$.}
+
+\shortanswer[1.0in]{Evaluate the integral $\displaystyle \int_0^5 \frac{5}{9+x^2}\,dx$. Answer to 3 decimal places.}
+
+\end{questions}
+
+\end{document}
