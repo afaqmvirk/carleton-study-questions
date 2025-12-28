@@ -214,8 +214,6 @@ Which of the following algorithms results in the minimum average waiting time (o
 
 
 \question Match each term to the most accurate and precise defenition.
-
-
 \begin{matching}
   \mitem{A}{Mutual Exclusion}{1}{Each process waits at most a finite number of turns.}
   \mitem{B}{Bounded Waiting}{2}{If the critical section is empty, waiting processes must eventually enter.}
@@ -455,8 +453,7 @@ tables for this process?
 \choice An OS can improve swap performance by spreading swap space across multiple devices instead of putting all swap on a single disk.
 }
 
-\question Match each I/O style to the most accurate definition.
-
+\question Match each I/O style to the most accurate definition
 \begin{matching}
   \mitem{A}{Blocking I/O}{1}{A single system call reads from or writes to multiple user buffers in one operation. \\}
   \mitem{B}{Non-blocking I/O}{2}{The system call does not return until the requested I/O has completed or an error occurs. \\}
@@ -545,7 +542,6 @@ Briefly justify your choices.
 }
 
 \question Match each file allocation method with the description that best fits its behavior and trade-offs.
-
 \begin{matching}
   \mitem{A}{Contiguous allocation}{1}{The file system records only a starting position and a length for each file. Accessing the $k$-th block is very fast once the start is known, but accommodating file growth may require relocating the file or adding special ``extension'' regions, and free space can become fragmented over time.}
   \mitem{B}{Linked allocation}{2}{Each block used by a file contains extra metadata that tells the system where to find another block of the same file. Files can easily grow one block at a time without moving existing data, and free space can be used in small pieces, but jumping directly to the $k$-th block may require visiting many other blocks first.}
